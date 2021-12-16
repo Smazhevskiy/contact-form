@@ -14,7 +14,7 @@ export const ContactForm = () => {
         },
 
         onSubmit: values => {
-            axios.post('https://nodejs-smtp-gmail.herokuapp.com/sendMessage', {
+            axios.post('https://smtp-nodemailer.herokuapp.com/sendMessage', {
                     name: values.name,
                     contacts: values.contacts,
                     message: values.message
@@ -22,7 +22,9 @@ export const ContactForm = () => {
                 {
                     headers: {
                         'Access-Control-Allow-Origin': 'https://smazhevskiy.github.io/contact-form/',
-                        'Access-Control-Allow-Methods': 'GET,POST,OPTIONS'
+                        'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+                        'Access-Control-Allow-Headers': 'Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control',
+
                     }
                 })
             formik.resetForm()
